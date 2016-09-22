@@ -6,6 +6,8 @@ import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.GraphDatabase;
 import org.neo4j.driver.v1.Config;
 
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Produces;
 import java.util.logging.Logger;
@@ -13,12 +15,16 @@ import java.util.logging.Logger;
 /**
  * Created by elvis on 16/09/2016.
  */
-@Stateless
+@Singleton
+@Startup
 public class Setup {
+
+    public Setup() {
+    }
 
     Logger logger = Logger.getLogger(this.getClass().getName());
 
-    private final org.neo4j.driver.v1.Driver driver;
+    private org.neo4j.driver.v1.Driver driver;
     private String url = "localhost:7474";
     AuthToken token = AuthTokens.basic("admin", "raposa4");
 
