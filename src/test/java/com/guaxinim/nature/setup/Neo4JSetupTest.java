@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.neo4j.driver.v1.*;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.util.logging.Logger;
 
 @RunWith(Arquillian.class)
@@ -26,7 +27,7 @@ public class Neo4JSetupTest {
     public static WebArchive createTestArchive() {
         return ShrinkWrap.create(WebArchive.class)
                 .addClass(Setup.class)
-                //.addAsResource("test-persistence.xml", "META-INF/persistence.xml")
+                .addAsWebInfResource(new File("src/main/webapp/WEB-INF/jboss-deployment-structure.xml"))
                 .addAsWebInfResource("wildfly-ds.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }

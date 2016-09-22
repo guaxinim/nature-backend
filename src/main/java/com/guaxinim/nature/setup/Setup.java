@@ -8,7 +8,6 @@ import org.neo4j.driver.v1.Config;
 
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.ejb.Stateless;
 import javax.enterprise.inject.Produces;
 import java.util.logging.Logger;
 
@@ -19,23 +18,20 @@ import java.util.logging.Logger;
 @Startup
 public class Setup {
 
-    public Setup() {
-    }
-
     Logger logger = Logger.getLogger(this.getClass().getName());
+    private String url;
+    private AuthToken token;
 
-    private org.neo4j.driver.v1.Driver driver;
-    private String url = "localhost:7474";
-    AuthToken token = AuthTokens.basic("admin", "raposa4");
-
-    public Setup(Driver driver) {
+    public Setup() {
         logger.fine("starting up Neo4J");
-        this.driver = GraphDatabase.driver(url, token, Config.build().withEncryptionLevel(Config.EncryptionLevel.NONE).toConfig());
+        url = "localhost:7474";
+        token = AuthTokens.basic("admin", "raposa4");
     }
 
     @Produces
     @Neo4jDriver
     public Driver getDriver() {
-        return driver;
+        //TODO: Check if is correct obtain a new driver in every production
+        return GraphDatabase.driver(url, token, Config.build().withEncryptionLevel(Config.EncryptionLevel.NONE).toConfig());
     }
 }
