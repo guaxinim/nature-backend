@@ -10,6 +10,9 @@ import javax.ejb.Startup;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 
@@ -22,10 +25,18 @@ public class Setup {
     private AuthToken token;
     private Driver driver;
 
-    public Setup() {
+    public Setup() throws IOException {
         logger.fine("starting up Neo4J");
-        url = "bolt://localhost";
-        token = AuthTokens.basic("neo4j", "12345678");
+        Properties properties = new Properties();
+        try (InputStream stream = ClassLoader.getSystemResourceAsStream("settings.properties")) {
+            properties.load(stream);
+            stream.close();
+        } catch (IOException ioex) {
+            logger.severe("Error loading settings.properties");
+            throw ioex;
+        }
+        url = properties.getProperty("neo4j.url");
+        token = AuthTokens.basic(properties.getProperty("neo4j.username"), properties.getProperty("neo4j.password"));
     }
 
     @Produces
