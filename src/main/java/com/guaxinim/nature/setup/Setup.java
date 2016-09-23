@@ -42,7 +42,7 @@ public class Setup {
     @Produces
     @Neo4jDriver
     public Driver getDriver() {
-        //TODO: Check if is correct obtain a new driver in every production
+        //TODO: Check if is correct obtain a new driver in every producer
         driver = GraphDatabase.driver(url, token, Config.build().withEncryptionLevel(Config.EncryptionLevel.NONE).toConfig());
         return driver;
     }

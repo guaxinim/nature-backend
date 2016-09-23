@@ -35,7 +35,6 @@ public class Neo4JSetupTest {
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-
     @Before
     @InSequence(1)
     public void setupNeo4j() {
