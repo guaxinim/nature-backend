@@ -42,11 +42,9 @@ public class Neo4JSetupTest {
             while ( result.hasNext() )
             {
                 Record record = result.next();
-                System.out.println( record.get( "title" ).asString() + " " + record.get("name").asString() );
-                Assert.assertTrue(record.get("name").equals("Arthur"));
+                Assert.assertTrue(record.get("title").asString().equals("King"));
+                Assert.assertTrue(record.get("name").asString().equals("Arthur"));
             }
-            session.close();
-            driver.close();
         }
     }
 
