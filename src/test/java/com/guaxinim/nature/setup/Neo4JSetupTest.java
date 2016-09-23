@@ -3,9 +3,11 @@ package com.guaxinim.nature.setup;
 import junit.framework.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.neo4j.driver.v1.*;
@@ -18,6 +20,7 @@ import java.util.logging.Logger;
 public class Neo4JSetupTest {
 
     Logger log = Logger.getLogger(Neo4JSetupTest.class.getName());
+    Session session;
 
     @Inject
     @Neo4jDriver
@@ -33,19 +36,40 @@ public class Neo4JSetupTest {
     }
 
 
+    @Before
+    @InSequence(1)
+    public void setupNeo4j() {
+        session = driver.session();
+        Assert.assertTrue(session.isOpen());
+    }
 
     @Test
-    public void testNeo4j() {
-        try (Session session = driver.session()) {
+    @InSequence(2)
+    public void insertPerson() {
+        try {
             session.run("CREATE (a:Person {name:'Arthur', title:'King'})");
-            StatementResult result = session.run( "MATCH (a:Person) WHERE a.name = 'Arthur' RETURN a.name AS name, a.title AS title" );
-            while ( result.hasNext() )
-            {
-                Record record = result.next();
-                Assert.assertTrue(record.get("title").asString().equals("King"));
-                Assert.assertTrue(record.get("name").asString().equals("Arthur"));
-            }
+        } catch (Exception e) {
+            Assert.fail("Neo4j CREATE Error");
         }
+    }
+
+    @Test
+    @InSequence(3)
+    public void matchPerson() {
+        StatementResult result = session.run( "MATCH (a:Person) WHERE a.name = 'Arthur' RETURN a.name AS name, a.title AS title" );
+        while ( result.hasNext() ) {
+            Record record = result.next();
+            Assert.assertTrue(record.get("title").asString().equals("King"));
+            Assert.assertTrue(record.get("name").asString().equals("Arthur"));
+        }
+    }
+
+    @Test
+    @InSequence(4)
+    public void removePerson() {
+        session.run("MATCH (a:Person {name:'Arthur', title:'King'}) DELETE a");
+        StatementResult result = session.run( "MATCH (a:Person) RETURN a" );
+        Assert.assertTrue(result.list().isEmpty());
     }
 
 }
