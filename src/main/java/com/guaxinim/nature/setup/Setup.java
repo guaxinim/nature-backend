@@ -26,7 +26,7 @@ public class Setup {
     private Driver driver;
 
     public Setup() throws IOException {
-        logger.fine("starting up Neo4J");
+        logger.fine("starting up Neo4J..");
         Properties properties = new Properties();
         try (InputStream stream = ClassLoader.getSystemResourceAsStream("settings.properties")) {
             properties.load(stream);
