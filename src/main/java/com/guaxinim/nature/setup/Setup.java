@@ -5,7 +5,9 @@ import org.neo4j.driver.v1.AuthToken;
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.GraphDatabase;
 import org.neo4j.driver.v1.Config;
+import org.neo4j.ogm.session.Session;
 
+import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Disposes;
@@ -16,7 +18,7 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 
-@Stateless
+@Singleton
 @Startup
 public class Setup {
 
@@ -48,9 +50,16 @@ public class Setup {
     }
 
     @Neo4jDriver
-    public void endSession(@Disposes Driver driver) {
+    public void closeDriver(@Disposes Driver driver) {
         if (driver != null) {
             driver.close();
         }
     }
+
+    @Produces
+    @Neo4jSession
+    public Session getSession() {
+        return Neo4jSessionFactory.getInstance().getNeo4jSession();
+    }
+
 }
