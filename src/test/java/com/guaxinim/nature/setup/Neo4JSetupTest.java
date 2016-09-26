@@ -1,5 +1,6 @@
 package com.guaxinim.nature.setup;
 
+import com.guaxinim.nature.setup.neo4j.Neo4jDriver;
 import junit.framework.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;

@@ -1,4 +1,4 @@
-package com.guaxinim.nature.setup;
+package com.guaxinim.nature.setup.neo4j;
 
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;

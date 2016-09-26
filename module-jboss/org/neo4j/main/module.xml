@@ -4,6 +4,8 @@
         <resource-root path="neo4j-3.0.6.jar"/>
         <resource-root path="neo4j-kernel-3.0.6.jar"/>
         <resource-root path="neo4j-java-driver-1.0.4.jar"/>
+        <resource-root path="neo4j-ogm-core-2.0.5.jar"/>
+        <resource-root path="neo4j-ogm-http-driver-2.0.5.jar"/>
     </resources>
 
     <dependencies>

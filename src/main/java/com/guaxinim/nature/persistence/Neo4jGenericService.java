@@ -1,7 +1,8 @@
-package com.guaxinim.nature.setup;
+package com.guaxinim.nature.persistence;
 
 
 import com.guaxinim.nature.domain.Entity;
+import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
 import org.neo4j.ogm.session.Session;
 
 public abstract class Neo4jGenericService<T> implements Neo4jService<T> {

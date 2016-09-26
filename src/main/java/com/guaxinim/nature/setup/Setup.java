@@ -1,5 +1,8 @@
 package com.guaxinim.nature.setup;
 
+import com.guaxinim.nature.setup.neo4j.Neo4jDriver;
+import com.guaxinim.nature.setup.neo4j.Neo4jSession;
+import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
 import org.neo4j.driver.v1.Driver;
 import org.neo4j.driver.v1.AuthToken;
 import org.neo4j.driver.v1.AuthTokens;
@@ -9,7 +12,6 @@ import org.neo4j.ogm.session.Session;
 
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.ejb.Stateless;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import java.io.IOException;

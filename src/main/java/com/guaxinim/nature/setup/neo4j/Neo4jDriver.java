@@ -1,4 +1,4 @@
-package com.guaxinim.nature.setup;
+package com.guaxinim.nature.setup.neo4j;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;
