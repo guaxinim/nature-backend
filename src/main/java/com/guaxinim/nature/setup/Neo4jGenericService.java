@@ -1,6 +1,7 @@
 package com.guaxinim.nature.setup;
 
-import org.neo4j.driver.v1.types.Entity;
+
+import com.guaxinim.nature.domain.Entity;
 import org.neo4j.ogm.session.Session;
 
 public abstract class Neo4jGenericService<T> implements Neo4jService<T> {
