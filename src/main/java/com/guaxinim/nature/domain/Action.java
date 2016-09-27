@@ -1,14 +1,19 @@
 package com.guaxinim.nature.domain;
 
+import org.neo4j.ogm.annotation.Relationship;
 import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Action extends Entity {
 
     private String name;
     @DateLong
     private Date when;
+
+    @Relationship(type = "DID_BY", direction = Relationship.INCOMING)
+    private Set<Person> person;
 
     public String getName() {
         return name;
@@ -24,5 +29,13 @@ public class Action extends Entity {
 
     public void setWhen(Date when) {
         this.when = when;
+    }
+
+    public Set<Person> getPerson() {
+        return person;
+    }
+
+    public void setPerson(Set<Person> person) {
+        this.person = person;
     }
 }
