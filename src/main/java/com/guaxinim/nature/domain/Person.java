@@ -8,12 +8,16 @@ public class Person extends Entity {
 
     private String name;
     private String relation;
+
     @Relationship(type = "DID")
     private Set<Action> actions;
+
     @Relationship(type = "HAD")
     private Set<Thought> thoughts;
+
     @Relationship(type = "HAD")
     private Set<Feeling> feelings;
+
     @Relationship(type = "HAD")
     private Set<Omission> omissions;
 

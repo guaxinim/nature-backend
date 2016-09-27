@@ -9,6 +9,7 @@ import java.util.Set;
 public class Feeling extends Entity {
 
     private String what;
+
     @DateLong
     private Date when;
 

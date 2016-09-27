@@ -9,33 +9,20 @@ import java.util.Set;
 public class Action extends Entity {
 
     private String name;
+
     @DateLong
     private Date when;
 
     @Relationship(type = "DID_BY", direction = Relationship.INCOMING)
-    private Set<Person> person;
+    private Set<Person> didBy;
 
-    public String getName() {
-        return name;
-    }
+    @Relationship(type = "TO")
+    private Set<Person> toSmb;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Relationship(type = "TO")
+    private Set<Object> toSmt;
 
-    public Date getWhen() {
-        return when;
-    }
+    @Relationship(type = "WITH")
+    private Set<Object> smt;
 
-    public void setWhen(Date when) {
-        this.when = when;
-    }
-
-    public Set<Person> getPerson() {
-        return person;
-    }
-
-    public void setPerson(Set<Person> person) {
-        this.person = person;
-    }
 }
