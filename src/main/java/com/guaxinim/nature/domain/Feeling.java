@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Feeling extends Entity {
 
-    private String name;
+    private String what;
     @DateLong
     private Date when;
 }

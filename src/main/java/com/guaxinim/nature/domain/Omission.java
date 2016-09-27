@@ -4,9 +4,10 @@ import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
 import java.util.Date;
 
-public class Thought extends Entity {
+public class Omission extends Entity {
 
-    private String what;
+    private String name;
     @DateLong
     private Date when;
+
 }
