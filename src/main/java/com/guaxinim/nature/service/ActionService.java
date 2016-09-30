@@ -10,8 +10,6 @@ import java.util.Date;
 @Stateless
 public class ActionService {
 
-    public ActionService() { }
-
     @Inject
     Neo4jGenericService<Action> service;
 
