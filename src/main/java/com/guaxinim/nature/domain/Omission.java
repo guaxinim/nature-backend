@@ -15,4 +15,27 @@ public class Omission extends Entity {
     @Relationship(type = "HAD_FROM", direction = Relationship.INCOMING)
     private Set<Person> person;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getWhen() {
+        return when;
+    }
+
+    public void setWhen(Date when) {
+        this.when = when;
+    }
+
+    public Set<Person> getPerson() {
+        return person;
+    }
+
+    public void setPerson(Set<Person> person) {
+        this.person = person;
+    }
 }

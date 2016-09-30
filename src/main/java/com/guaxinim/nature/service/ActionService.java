@@ -3,9 +3,11 @@ package com.guaxinim.nature.service;
 import com.guaxinim.nature.domain.Action;
 import com.guaxinim.nature.persistence.Neo4jGenericService;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.Date;
 
+@Stateless
 public class ActionService {
 
     public ActionService() { }

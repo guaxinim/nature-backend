@@ -23,7 +23,10 @@ public class Action extends Entity {
     private Set<Object> toSmt;
 
     @Relationship(type = "WITH")
-    private Set<Object> smt;
+    private Set<Object> withSmt;
+
+    @Relationship(type = "WITH")
+    private Set<Person> withSmb;
 
     public String getName() {
         return name;
@@ -65,11 +68,19 @@ public class Action extends Entity {
         this.toSmt = toSmt;
     }
 
-    public Set<Object> getSmt() {
-        return smt;
+    public Set<Object> getWithSmt() {
+        return withSmt;
     }
 
-    public void setSmt(Set<Object> smt) {
-        this.smt = smt;
+    public void setWithSmt(Set<Object> withSmt) {
+        this.withSmt = withSmt;
+    }
+
+    public Set<Person> getWithSmb() {
+        return withSmb;
+    }
+
+    public void setWithSmb(Set<Person> withSmb) {
+        this.withSmb = withSmb;
     }
 }
