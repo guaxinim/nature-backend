@@ -22,7 +22,7 @@ public class ActionRest {
     @GET
     @Path("action/{id}")
     @Produces("application/json")
-    public Action getAction(@PathParam("id") String id, @Context final HttpServletResponse response) {
+    public Action getAction(@PathParam("id") String id) {
         Integer param = Integer.valueOf(id);
         //Action action = actionService.getAction(param);
         return null;
@@ -31,7 +31,7 @@ public class ActionRest {
     @GET
     @Path("actions")
     @Produces("application/json")
-    public List<Action> getActions(@Context final HttpServletResponse response) {
+    public List<Action> getActions() {
         //List<Action> actions = actionService.getActions();
         return null;
     }
@@ -39,7 +39,7 @@ public class ActionRest {
     @POST
     @Path("action")
     @Consumes("application/json")
-    public Response insertAction(Action action, @Context final HttpServletResponse response) {
+    public Response insertAction(Action action) {
         //actionService.insertAction(action);
         return Response.status(Response.Status.CREATED).entity("Action created").build();
     }
@@ -47,7 +47,7 @@ public class ActionRest {
     @DELETE
     @Path("action/{id}")
     @Produces("application/json")
-    public Response removeAction(@PathParam("id") String id, @Context final HttpServletResponse response) {
+    public Response removeAction(@PathParam("id") String id) {
         Integer param = Integer.valueOf(id);
         //actionService.removeAction(param);
         return Response.status(Response.Status.OK).entity("Action removed").build();

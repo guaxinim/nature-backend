@@ -34,7 +34,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.junit:arquillian-junit-core:1.1.2.Final-wildfly-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-api:1.1.2.Final-wildfly-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-spi:1.1.2.Final-wildfly-1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-spi:1.1.2.Final-wildfly-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-api:1.1.2.Final-wildfly-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap:shrinkwrap-api:1.1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-spi:1.1.2.Final-wildfly-1" level="project" />
@@ -49,6 +48,22 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-impl-base:1.1.2.Final-wildfly-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap:shrinkwrap-impl-base:1.1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap:shrinkwrap-spi:1.1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.extension:arquillian-rest-client-impl-jersey:1.0.0.Alpha3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.extension:arquillian-rest-client-api:1.0.0.Alpha3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.extension:arquillian-rest-client-impl-base:1.0.0.Alpha3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: javassist:javassist:3.8.0.GA" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jersey.core:jersey-client:2.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jersey.core:jersey-common:2.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.hk2:hk2-api:2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.hk2:hk2-utils:2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.hk2.external:javax.inject:2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.hk2:hk2-locator:2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jersey.ext:jersey-proxy-client:2.6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-spi:1.1.2.Final-wildfly-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.wildfly:wildfly-arquillian-container-embedded:8.1.0.CR1" level="project" />
     <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
