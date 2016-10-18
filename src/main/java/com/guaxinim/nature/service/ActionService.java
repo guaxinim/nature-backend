@@ -4,15 +4,11 @@ import com.guaxinim.nature.domain.Action;
 import com.guaxinim.nature.persistence.Neo4jGenericService;
 
 import javax.ejb.Stateless;
-import java.util.Date;
 
 @Stateless
 public class ActionService extends Neo4jGenericService<Action> {
 
-    public void saveAction(String strAction) {
-        Action action = new Action();
-        action.setWhen(new Date());
-        action.setName(strAction);
+    public void insertAction(Action action) {
         createOrUpdate(action);
     }
 

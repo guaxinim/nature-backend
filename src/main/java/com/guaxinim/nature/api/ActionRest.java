@@ -40,7 +40,7 @@ public class ActionRest {
     @Path("action")
     @Consumes("application/json")
     public Response insertAction(Action action) {
-        //actionService.insertAction(action);
+        actionService.insertAction(action);
         return Response.status(Response.Status.CREATED).entity("Action created").build();
     }
 

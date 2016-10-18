@@ -18,7 +18,7 @@ public class Neo4jSessionFactory {
         org.neo4j.ogm.config.Configuration config = new org.neo4j.ogm.config.Configuration();
         config
                 .driverConfiguration()
-                .setDriverClassName("org.neo4j.ogm.driver.Driver")
+                .setDriverClassName("org.neo4j.ogm.drivers.http.driver.HttpDriver")
                 .setURI(URL);
         return config;
     }
