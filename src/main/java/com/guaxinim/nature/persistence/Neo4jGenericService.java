@@ -1,6 +1,5 @@
 package com.guaxinim.nature.persistence;
 
-import com.guaxinim.nature.domain.Entity;
 import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
 import org.neo4j.ogm.session.Session;
 
@@ -23,10 +22,8 @@ public abstract class Neo4jGenericService<T> implements Neo4jService<T> {
         session.delete(session.load(getEntityType(), id));
     }
     @Override
-    public T createOrUpdate(T entity) {
+    public void createOrUpdate(T entity) {
         session.save(entity, DEPTH_ENTITY);
-        //return find(((Entity) entity).getId());
-        return null;
     }
     public abstract Class<T> getEntityType();
 }
