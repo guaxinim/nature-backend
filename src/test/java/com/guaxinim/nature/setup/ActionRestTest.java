@@ -39,6 +39,7 @@ public class ActionRestTest {
                 .addPackage("com.guaxinim.nature.persistence")
                 .addPackage("com.guaxinim.nature.service")
                 .addAsWebInfResource(new File("src/main/webapp/WEB-INF/jboss-deployment-structure.xml"))
+                .addAsResource(new File("src/main/resources/settings.properties"), "settings.properties")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 

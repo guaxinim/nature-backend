@@ -209,10 +209,10 @@
         <finalName>nature-backend</finalName>
         <testResources>
             <testResource>
-                <directory>src/test/resources</directory>
+                <directory>${basedir}/src/test/resources</directory>
             </testResource>
             <testResource>
-                <directory>src/test/resources-wildfly</directory>
+                <directory>${basedir}/src/test/resources-wildfly</directory>
             </testResource>
     	</testResources>
 
