@@ -39,7 +39,7 @@ public class Setup {
             logger.severe("Error loading settings.properties");
             throw ioex;
         }
-        url = properties.getProperty("neo4j.url");
+        url = properties.getProperty("neo4j.bolt.url");
         token = AuthTokens.basic(properties.getProperty("neo4j.username"), properties.getProperty("neo4j.password"));
     }
 

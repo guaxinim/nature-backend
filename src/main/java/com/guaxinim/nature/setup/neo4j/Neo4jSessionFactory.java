@@ -14,7 +14,7 @@ public class Neo4jSessionFactory {
 
     Logger logger = Logger.getLogger(this.getClass().getName());
     private static Neo4jSessionFactory factory = new Neo4jSessionFactory();
-    Properties properties;
+    Properties properties = new Properties();
     //public static final String URL = System.getenv("NEO4J_URL") != null ? System.getenv("NEO4J_URL") : "http://localhost:7474";
 
     public static Neo4jSessionFactory getInstance() {
@@ -22,7 +22,7 @@ public class Neo4jSessionFactory {
     }
 
     private Neo4jSessionFactory() {
-        try (InputStream stream = ClassLoader.getSystemResourceAsStream("settings.properties")) {
+        try (InputStream stream = this.getClass().getClassLoader().getResourceAsStream("settings.properties")) {
             properties.load(stream);
             stream.close();
         } catch (IOException ioex) {
@@ -36,7 +36,7 @@ public class Neo4jSessionFactory {
         config
                 .driverConfiguration()
                 .setDriverClassName("org.neo4j.ogm.drivers.http.driver.HttpDriver")
-                .setURI(properties.getProperty("neo4j.url"))
+                .setURI(properties.getProperty("neo4j.http.url"))
                 .setCredentials(properties.getProperty("neo4j.username"), properties.getProperty("neo4j.password"));
         return config;
     }
