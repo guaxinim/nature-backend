@@ -1,9 +1,8 @@
 package com.guaxinim.nature.setup;
 
-import com.guaxinim.nature.api.ActionRest;
-import com.guaxinim.nature.domain.Action;
+import com.google.common.collect.Iterables;
+import com.guaxinim.nature.api.ObjectRest;
 import com.guaxinim.nature.domain.Object;
-import com.guaxinim.nature.domain.Person;
 import com.guaxinim.nature.setup.neo4j.Neo4jDriver;
 import com.guaxinim.nature.setup.neo4j.Neo4jSession;
 import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
@@ -15,22 +14,19 @@ import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import javax.ws.rs.core.Response;
 import java.io.File;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
 import java.util.logging.Logger;
 
-//@RunWith(Arquillian.class)
-public class ActionRestTest {
+@RunWith(Arquillian.class)
+public class ObjectRestTest {
 
-    Logger log = Logger.getLogger(ActionRestTest.class.getName());
+    Logger log = Logger.getLogger(ObjectRestTest.class.getName());
 
-    //@Deployment
+    @Deployment
     public static WebArchive createTestArchive() {
         return ShrinkWrap.create(WebArchive.class)
                 .addClass(Setup.class)
@@ -47,28 +43,22 @@ public class ActionRestTest {
     }
 
 
-    //@Test
-    //@InSequence(5)
-    public void insertAction(@ArquillianResteasyResource ActionRest actionResource) {
-        log.info("[TESTS] - POSTING new Action...");
-        Action action = new Action();
-        action.setName("run");
-        action.setWhen(new Date());
-        action.setDidBy(new HashSet<Person>());
-        action.setToSmb(new HashSet<Person>());
-        action.setToSmt(new HashSet<Object>());
-        action.setWithSmb(new HashSet<Person>());
-        action.setWithSmt(new HashSet<Object>());
-        Response response = actionResource.insertAction(action);
-        Assert.assertTrue(response.getStatus() == 1);
+    @Test
+    @InSequence(5)
+    public void insertObject(@ArquillianResteasyResource ObjectRest objectResource) {
+        log.info("[TESTS] - POSTING new Object...");
+        Object object = new Object();
+        object.setName("run");
+        Response response = objectResource.insertObject(object);
+        Assert.assertEquals(response.getStatus(), Response.Status.CREATED.getStatusCode());
     }
 
-    //@Test
-    //@InSequence(6)
-    public void getAction(@ArquillianResteasyResource ActionRest actionResource) {
-        log.info("[TESTS] - Getting actions ...");
-        List<Action> actions = actionResource.getActions();
-        Assert.assertFalse(actions.isEmpty());
+    @Test
+    @InSequence(6)
+    public void getObject(@ArquillianResteasyResource ObjectRest objectResource) {
+        log.info("[TESTS] - Getting objects ...");
+        Iterable<Object> objects = objectResource.getObjects();
+        Assert.assertTrue(Iterables.size(objects) > 0);
     }
 
 }
