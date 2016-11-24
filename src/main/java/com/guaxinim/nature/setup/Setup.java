@@ -61,7 +61,7 @@ public class Setup {
     @Produces
     @Neo4jSession
     public Session getSession() {
-        return Neo4jSessionFactory.getInstance().getNeo4jSession();
+        return Neo4jSessionFactory.getInstance().getOGMSession();
     }
 
 }

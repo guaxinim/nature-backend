@@ -1,7 +1,5 @@
 package com.guaxinim.nature.setup.neo4j;
 
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.ogm.authentication.Credentials;
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
 
@@ -41,7 +39,7 @@ public class Neo4jSessionFactory {
         return config;
     }
 
-    public Session getNeo4jSession() {
+    public Session getOGMSession() {
         SessionFactory sessionFactory = new SessionFactory(getConfiguration(), "default.domain");
         return sessionFactory.openSession();
     }

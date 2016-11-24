@@ -22,8 +22,7 @@ public class ActionRest {
     @GET
     @Path("action/{id}")
     @Produces("application/json")
-    public Action getAction(@PathParam("id") String id) {
-        Integer param = Integer.valueOf(id);
+    public static Action getAction(@PathParam("id") String id) {
         //Action action = actionService.getAction(param);
         return null;
     }
