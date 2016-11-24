@@ -2,7 +2,6 @@ package com.guaxinim.nature.service;
 
 import com.guaxinim.nature.domain.Object;
 import com.guaxinim.nature.persistence.Neo4jGenericService;
-import org.neo4j.ogm.session.Session;
 
 import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;

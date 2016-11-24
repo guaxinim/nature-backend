@@ -40,7 +40,7 @@ public class Neo4jSessionFactory {
     }
 
     public Session getOGMSession() {
-        SessionFactory sessionFactory = new SessionFactory(getConfiguration(), "default.domain");
+        SessionFactory sessionFactory = new SessionFactory(getConfiguration(), "com.guaxinim.nature.domain");
         return sessionFactory.openSession();
     }
 }

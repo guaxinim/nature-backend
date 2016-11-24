@@ -11,22 +11,24 @@ public abstract class Neo4jGenericService<T> implements Neo4jService<T> {
 
     @Override
     public Iterable<T> findAll() {
-        System.out.println("     ############### Session: " + session);
-        System.out.println("     ############### Type: " + getEntityType());
         return session.loadAll(getEntityType(), DEPTH_LIST);
     }
+
     @Override
     public T find(Long id) {
         return session.load(getEntityType(), id, DEPTH_ENTITY);
     }
+
     @Override
     public void delete(Long id) {
         session.delete(session.load(getEntityType(), id));
     }
+
     @Override
     public void createOrUpdate(T entity) {
         session.save(entity, DEPTH_ENTITY);
     }
+
     public abstract Class<T> getEntityType();
 
     protected void clearSession() {

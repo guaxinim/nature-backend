@@ -5,6 +5,15 @@ public class Object extends Entity {
     private String name;
     private String type;
 
+    public Object(String name) {
+        this.name = name;
+    }
+
+    public Object(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
     public String getName() {
         return name;
     }
