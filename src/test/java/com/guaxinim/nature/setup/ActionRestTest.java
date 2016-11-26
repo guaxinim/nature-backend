@@ -8,16 +8,11 @@ import com.guaxinim.nature.setup.neo4j.Neo4jDriver;
 import com.guaxinim.nature.setup.neo4j.Neo4jSession;
 import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
 import junit.framework.Assert;
-import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.extension.rest.client.ArquillianResteasyResource;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
 import javax.ws.rs.core.Response;
 import java.io.File;
 import java.util.Date;

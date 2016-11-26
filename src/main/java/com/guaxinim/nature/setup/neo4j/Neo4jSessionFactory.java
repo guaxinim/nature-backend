@@ -1,8 +1,8 @@
 package com.guaxinim.nature.setup.neo4j;
 
+
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

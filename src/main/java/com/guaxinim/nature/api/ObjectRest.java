@@ -4,7 +4,6 @@ import com.guaxinim.nature.domain.Object;
 import com.guaxinim.nature.service.ObjectService;
 
 import javax.ejb.EJB;
-import javax.enterprise.inject.*;
 import javax.ws.rs.*;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;

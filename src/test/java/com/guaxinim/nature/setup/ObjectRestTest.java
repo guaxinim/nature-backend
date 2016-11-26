@@ -32,6 +32,7 @@ public class ObjectRestTest {
                 .addClass(Setup.class)
                 .addClass(Neo4jDriver.class)
                 .addClass(Neo4jSession.class)
+                .addClass(Object.class)
                 .addClass(Neo4jSessionFactory.class)
                 .addPackage("com.guaxinim.nature.domain")
                 .addPackage("com.guaxinim.nature.api")
@@ -47,8 +48,7 @@ public class ObjectRestTest {
     @InSequence(5)
     public void insertObject(@ArquillianResteasyResource ObjectRest objectResource) {
         log.info("[TESTS] - POSTING new Object...");
-        Object object = new Object();
-        object.setName("run");
+        Object object = new Object("chair");
         Response response = objectResource.insertObject(object);
         Assert.assertEquals(response.getStatus(), Response.Status.CREATED.getStatusCode());
     }

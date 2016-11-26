@@ -2,6 +2,8 @@ package com.guaxinim.nature.domain;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 
+import java.lang.*;
+
 @NodeEntity
 public abstract class Entity {
 
@@ -14,7 +16,7 @@ public abstract class Entity {
         this.id = id;
     }
 
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) return true;
         if (o == null || id == null || getClass() != o.getClass()) return false;
         Entity entity = (Entity) o;
