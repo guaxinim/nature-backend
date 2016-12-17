@@ -9,7 +9,6 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.logging.Logger;
 
-@Path("/")
 public class ActionRest {
 
     Logger log = Logger.getLogger(ActionRest.class.getName());

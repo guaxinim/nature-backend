@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.logging.Logger;
 
-@Path("/")
+@Path("/rest")
 public class ObjectRest {
 
     Logger log = Logger.getLogger(ActionRest.class.getName());
@@ -37,7 +37,10 @@ public class ObjectRest {
     @Path("object")
     @Consumes("application/json")
     public Response insertObject(Object object) {
-        objectService.insertObject(object);
+        Object obj = new Object();
+        obj.setName("chair");
+        obj.setType("furniture");
+        objectService.insertObject(obj);
         return Response.status(Response.Status.CREATED).entity("Object created").build();
     }
 

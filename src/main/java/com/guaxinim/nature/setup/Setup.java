@@ -20,8 +20,8 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 
-@Singleton
-@Startup
+//@Singleton
+//@Startup
 public class Setup {
 
     Logger logger = Logger.getLogger(this.getClass().getName());
