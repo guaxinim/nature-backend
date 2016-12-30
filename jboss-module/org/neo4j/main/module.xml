@@ -2,19 +2,20 @@
 <module xmlns="urn:jboss:module:1.1" name="org.neo4j">
     <resources>
         <resource-root path="neo4j-3.0.6.jar"/>
-        <resource-root path="neo4j-kernel-3.0.6.jar"/>
-        <resource-root path="neo4j-java-driver-1.0.4.jar"/>
-        <resource-root path="neo4j-ogm-core-2.0.5.jar"/>
-        <resource-root path="neo4j-ogm-http-driver-2.0.5.jar"/>
-        <resource-root path="neo4j-ogm-api-2.0.5.jar"/>
         <resource-root path="httpcore-4.4.jar"/>
         <resource-root path="httpclient-4.5.2.jar"/>
+        <resource-root path="neo4j-kernel-3.0.6.jar"/>
+        <resource-root path="neo4j-java-driver-1.0.4.jar"/>
+        <resource-root path="neo4j-ogm-core-2.1.0-SNAPSHOT.jar"/>
+        <resource-root path="neo4j-ogm-http-driver-2.1.0-SNAPSHOT.jar"/>
+        <resource-root path="neo4j-ogm-api-2.1.0-SNAPSHOT.jar"/>
     </resources>
 
     <dependencies>
         <module name="javax.api"/>
         <module name="org.jboss.logging"/>
         <module name="org.apache.commons.codec"/>
+        <module name="org.apache.commons.collections4"/>
         <module name="org.slf4j"/>
         <module name="org.slf4j.jcl-over-slf4j"/>
         <module name="com.fasterxml.jackson.core.jackson-databind"/>

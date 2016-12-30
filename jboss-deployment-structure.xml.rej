@@ -2,7 +2,8 @@
 <jboss-deployment-structure>
     <deployment>
         <dependencies>
-            <module name="org.neo4j"/>
+            <module name="org.neo4j" services="import" export="true"/>
+            <module name="org.neo4j-vfs" services="import" export="true"/>
         </dependencies>
         <exclusions>
             <module name="org.apache.httpcomponents"/>
