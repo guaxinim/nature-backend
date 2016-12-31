@@ -1,10 +1,17 @@
 package com.guaxinim.nature.domain;
 
+import io.innerloop.neo4j.ogm.annotations.Id;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.Set;
 
 public class Person extends Entity {
+
+    @Id
+    private Long uuid;
+
+    public Long getUuid() { return uuid; }
+    public void setUuid(Long uuid) { this.uuid = uuid; }
 
     private String name;
     private String relation;

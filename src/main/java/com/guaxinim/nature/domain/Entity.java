@@ -1,14 +1,14 @@
 package com.guaxinim.nature.domain;
 
+import io.innerloop.neo4j.ogm.annotations.Id;
+import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
-
-import java.lang.*;
 
 @NodeEntity
 public abstract class Entity {
 
+    @GraphId
     private Long id;
-
     public Long getId() {
         return id;
     }

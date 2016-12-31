@@ -1,5 +1,6 @@
 package com.guaxinim.nature.domain;
 
+import io.innerloop.neo4j.ogm.annotations.Id;
 import org.neo4j.ogm.annotation.Relationship;
 import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
@@ -8,6 +9,8 @@ import java.util.Set;
 
 public class Action extends Entity {
 
+    @Id
+    private Long uuid;
     private String name;
 
     @DateLong
@@ -27,6 +30,10 @@ public class Action extends Entity {
 
     @Relationship(type = "WITH")
     private Set<Person> withSmb;
+
+    public Long getUuid() { return uuid; }
+
+    public void setUuid(Long uuid) { this.uuid = uuid; }
 
     public String getName() {
         return name;

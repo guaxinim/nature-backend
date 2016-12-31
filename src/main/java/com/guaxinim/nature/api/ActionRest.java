@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.logging.Logger;
 
+@Path("/rest")
 public class ActionRest {
 
     Logger log = Logger.getLogger(ActionRest.class.getName());
@@ -19,17 +20,15 @@ public class ActionRest {
     @GET
     @Path("action/{id}")
     @Produces("application/json")
-    public static Action getAction(@PathParam("id") String id) {
-        //Action action = actionService.getAction(param);
-        return null;
+    public Action getAction(@PathParam("id") String id) {
+        return actionService.getAction("id", Long.parseLong(id));
     }
 
     @GET
     @Path("actions")
     @Produces("application/json")
     public List<Action> getActions() {
-        //List<Action> actions = actionService.getActions();
-        return null;
+        return (List<Action>) actionService.getActions();
     }
 
     @POST
@@ -44,8 +43,7 @@ public class ActionRest {
     @Path("action/{id}")
     @Produces("application/json")
     public Response removeAction(@PathParam("id") String id) {
-        Integer param = Integer.valueOf(id);
-        //actionService.removeAction(param);
+        actionService.deleteAction(Long.parseLong(id));
         return Response.status(Response.Status.OK).entity("Action removed").build();
     }
 }

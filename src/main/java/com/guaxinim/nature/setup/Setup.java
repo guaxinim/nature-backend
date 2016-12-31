@@ -3,11 +3,6 @@ package com.guaxinim.nature.setup;
 import com.guaxinim.nature.setup.neo4j.Neo4jDriver;
 import com.guaxinim.nature.setup.neo4j.Neo4jSession;
 import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.AuthToken;
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.GraphDatabase;
-import org.neo4j.driver.v1.Config;
 import org.neo4j.ogm.session.Session;
 
 import javax.ejb.Singleton;
@@ -22,12 +17,15 @@ import java.util.logging.Logger;
 
 //@Singleton
 //@Startup
+/*
+This class is for test purposes when running in standalone mode
+ */
 public class Setup {
 
     Logger logger = Logger.getLogger(this.getClass().getName());
     private String url;
-    private AuthToken token;
-    private Driver driver;
+    //private AuthToken token;
+    //private Driver driver;
 
     public Setup() throws IOException {
         logger.fine("starting up Neo4J..");
@@ -40,28 +38,28 @@ public class Setup {
             throw ioex;
         }
         url = properties.getProperty("neo4j.bolt.url");
-        token = AuthTokens.basic(properties.getProperty("neo4j.username"), properties.getProperty("neo4j.password"));
+        //token = AuthTokens.basic(properties.getProperty("neo4j.username"), properties.getProperty("neo4j.password"));
     }
 
-    @Produces
-    @Neo4jDriver
-    public Driver getDriver() {
+    //@Produces
+    //@Neo4jDriver
+    //public Driver getDriver() {
         //TODO: Check if is correct obtain a new driver in every producer
-        driver = GraphDatabase.driver(url, token, Config.build().withEncryptionLevel(Config.EncryptionLevel.NONE).toConfig());
-        return driver;
-    }
+        //driver = GraphDatabase.driver(url, token, Config.build().withEncryptionLevel(Config.EncryptionLevel.NONE).toConfig());
+        //return driver;
+    //}
 
-    @Neo4jDriver
-    public void closeDriver(@Disposes Driver driver) {
-        if (driver != null) {
-            driver.close();
-        }
-    }
+    //@Neo4jDriver
+    //public void closeDriver(@Disposes Driver driver) {
+        //if (driver != null) {
+            //driver.close();
+        //}
+    //}
 
-    @Produces
-    @Neo4jSession
-    public Session getSession() {
-        return Neo4jSessionFactory.getInstance().getOGMSession();
-    }
+    //@Produces
+    //@Neo4jSession
+    //public Session getSession() {
+        //return Neo4jSessionFactory.getInstance().getOGMSession();
+    //}
 
 }

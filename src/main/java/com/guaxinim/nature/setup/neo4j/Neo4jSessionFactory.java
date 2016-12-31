@@ -1,8 +1,10 @@
 package com.guaxinim.nature.setup.neo4j;
 
 
-import org.neo4j.ogm.session.Session;
-import org.neo4j.ogm.session.SessionFactory;
+import io.innerloop.neo4j.client.Neo4jClient;
+import io.innerloop.neo4j.ogm.Session;
+import io.innerloop.neo4j.ogm.SessionFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -40,7 +42,9 @@ public class Neo4jSessionFactory {
     }
 
     public Session getOGMSession() {
-        SessionFactory sessionFactory = new SessionFactory(getConfiguration(), "com.guaxinim.nature.domain");
-        return sessionFactory.openSession();
+        Neo4jClient client = new Neo4jClient("http://localhost:7474/db/data", "neo4j", "12345678");
+        SessionFactory sessionFactory = new SessionFactory(client, "com.guaxinim.nature.domain");
+        //SessionFactory sessionFactory = new SessionFactory(getConfiguration(), "com.guaxinim.nature.domain");
+        return sessionFactory.getCurrentSession();
     }
 }

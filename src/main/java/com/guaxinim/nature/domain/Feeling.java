@@ -1,5 +1,6 @@
 package com.guaxinim.nature.domain;
 
+import io.innerloop.neo4j.ogm.annotations.Id;
 import org.neo4j.ogm.annotation.Relationship;
 import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
@@ -8,6 +9,8 @@ import java.util.Set;
 
 public class Feeling extends Entity {
 
+    @Id
+    private Long uuid;
     private String what;
 
     @DateLong
@@ -16,6 +19,10 @@ public class Feeling extends Entity {
     @Relationship(type = "FELT_BY", direction = Relationship.INCOMING)
     private Set<Person> person;
 
+    public Long getUuid() { return uuid; }
+
+    public void setUuid(Long uuid) { this.uuid = uuid; }
+    
     public String getWhat() {
         return what;
     }

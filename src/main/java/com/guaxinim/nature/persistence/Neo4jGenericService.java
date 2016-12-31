@@ -1,7 +1,7 @@
 package com.guaxinim.nature.persistence;
 
 import com.guaxinim.nature.setup.neo4j.Neo4jSessionFactory;
-import org.neo4j.ogm.session.Session;
+import io.innerloop.neo4j.ogm.Session;
 
 public abstract class Neo4jGenericService<T> implements Neo4jService<T> {
 
@@ -11,22 +11,20 @@ public abstract class Neo4jGenericService<T> implements Neo4jService<T> {
 
     @Override
     public Iterable<T> findAll() {
-        return session.loadAll(getEntityType(), DEPTH_LIST);
+        return session.loadAll(getEntityType());
     }
 
     @Override
-    public T find(Long id) {
-        return session.load(getEntityType(), id, DEPTH_ENTITY);
+    public T find(String property, Long id) {
+        return session.load(getEntityType(), property, id);
     }
 
     @Override
-    public void delete(Long id) {
-        session.delete(session.load(getEntityType(), id));
-    }
+    public void delete(Long id) { session.delete(getEntityType()); }
 
     @Override
     public void createOrUpdate(T entity) {
-        session.save(entity, DEPTH_ENTITY);
+        session.save(entity);
     }
 
     public abstract Class<T> getEntityType();

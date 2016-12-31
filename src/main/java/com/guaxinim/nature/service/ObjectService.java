@@ -27,4 +27,8 @@ public class ObjectService extends Neo4jGenericService<Object> {
         clearSession();
     }
 
+    @Override
+    public Object find(String property, Long id) {
+        return super.find(property, id);
+    }
 }
